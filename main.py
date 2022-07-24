@@ -4,6 +4,9 @@ import ScoreCalculator
 #Get user's name
 name = input("Enter your name: ")
 
+#Getter for name
+
+
 # Get Date of Birth from the User
 while(True):
     dateOfBirth = input("Enter your date of birth MM/DD/YYYY: ")
@@ -25,10 +28,10 @@ scores = dict()
 scores["length"] = ScoreCalculator.lenScore(password)
 scores["variety"] = ScoreCalculator.varietyScore(password)
 scores["patterns"] = ScoreCalculator.patternScore(password)
-scores["personalInfo"] = ScoreCalculator.personalInfoScore(password)
+scores["personalInfo"] = ScoreCalculator.personalInfoScore(name, password)
 scores["words"] = ScoreCalculator.wordsScore(password)
 scores["repetition"] = ScoreCalculator.repetitionScore(password)
 total = 0
-for score in scores:
+for score in scores.values():
     total += score
-print(total)
+print("Score: " + str(total))
