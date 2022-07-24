@@ -28,3 +28,7 @@ scores["patterns"] = ScoreCalculator.patternScore(password)
 scores["personalInfo"] = ScoreCalculator.personalInfoScore(password)
 scores["words"] = ScoreCalculator.wordsScore(password)
 scores["repetition"] = ScoreCalculator.repetitionScore(password)
+total = 0
+for score in scores:
+    total += score
+print(total)

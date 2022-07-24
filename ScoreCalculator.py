@@ -13,3 +13,18 @@ def varietyScore(password):
     if(total > 100):
         return 100
     return total
+
+def patternScore(password):
+    return 0
+
+def personalInfoScore(password):
+    return 0
+
+def wordsScore(password):
+    return 0
+
+def wordsScore(password):
+    return 0
+
+def repetitionScore(password):
+    return 0
