@@ -39,4 +39,15 @@ def wordsScore(password):
     return score
 
 def repetitionScore(password):
-    return 0
+    repDict = dict()
+    score = 100
+    for x in password:
+        repDict[x] = repDict.get(x, 0) + 1
+    for value in repDict.values():
+        score -= 80 * ((value - 1)/len(password))
+        if value == len(password):
+            return 0
+    if score < 0:
+        score = 0
+    return score
+
