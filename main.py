@@ -2,10 +2,10 @@ import InputSanitization
 import ScoreCalculator
 
 #Get user's name
-name = input("Enter your name: ")
-
-#Getter for name
-
+while(True):
+    name = input("Enter your name: ")
+    if(InputSanitization.cleanName(name)):
+        break
 
 # Get Date of Birth from the User
 while(True):
