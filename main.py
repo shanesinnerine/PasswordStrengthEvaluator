@@ -36,6 +36,7 @@ while(True):
     scores["PersonalInfo"] = ScoreCalculator.personalInfoScore(dateOfBirth, name, password)
     scores["Words"] = ScoreCalculator.wordsScore(password)
     scores["Repetition"] = ScoreCalculator.repetitionScore(password)
+    scores["CommonPhrases"] = ScoreCalculator.commonPhrases(password)
     total = 0
     for score in scores.values():
         total += score
@@ -48,7 +49,7 @@ while(True):
         printDashedLine()
         if choice == "1":
             for score in scores.keys():
-                print(score + "score = " + str(int(scores.get(score))))
+                print(score + " score = " + str(int(scores.get(score))))
             print("Total score: " + str(total))
 
             input("Press any button to continue")

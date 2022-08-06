@@ -16,8 +16,35 @@ def varietyScore(password):
         return 100
     return total
 
+def commonPhrases(password):
+    phrases = ["qwerty", "wasd", "lmao", "lol", "omg", "wtf", "lmfao"]
+    score = 100
+    phraseLength = 0
+    for i in phrases:
+        if i in password.lower():
+            phraseLength += len(i)
+    score -= (phraseLength/len(password) * 100)
+    return score
+
 def patternScore(password):
-    return 0
+    #multiple adjacent keyboard keys
+    #counting numbers up or down
+    score = 100
+    pLength = 1
+    for i in range(0, len(password) - 1):
+        if ord(password[i]) - ord(password [i + 1] ) == 0:
+            pLength += 1
+        elif abs(int(ord(password[i])) - ord(password[i + 1])) == 1:
+            pLength += 1
+        else:
+            if pLength != 1:
+                score -= (pLength/len(password)) * 100
+                pLength = 1
+    if pLength != 1:
+        score -= (pLength/len(password)) * 100
+    if score < 0:
+        return 0
+    return score
 
 def personalInfoScore(dob, name, password):
     score = 100
