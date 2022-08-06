@@ -19,9 +19,21 @@ def varietyScore(password):
 def patternScore(password):
     return 0
 
-def personalInfoScore(name, password):
-    #if(password.contains(name)):
-    return 0
+def personalInfoScore(dob, name, password):
+    score = 100
+    nameList = name.split(" ")
+    dob.replace(" ", "")
+    dobList = list(dob.split("/"))
+    decrement = 100/(len(nameList) + 3)
+    for i in nameList:
+        if (i in password):
+                score -= decrement
+    for thing in dobList:
+        if (thing in password):
+            score -= decrement
+    if score < 0:
+        return 0
+    return score
 
 def wordsScore(password):
     score = 100
